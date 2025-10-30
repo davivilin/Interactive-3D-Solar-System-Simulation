@@ -536,7 +536,7 @@
             if (id === "asteroidBelt" || id === "moon") return;
 
             const modelFileName = `${id}.glb`;
-            const modelPath = new URL(`assets/models/${modelFileName}`, window.location.href).href;
+            const modelPath = `assets/models/${modelFileName}`;
 
             gltfLoader.load(modelPath,
                 function (gltf) { 
@@ -588,7 +588,7 @@
                        
                         const earthMeshRef = finalMeshObject;
                         const moonData = bodyData.moon;
-                        const moonModelPath = new URL(`assets/models/moon.glb`, window.location.href).href;
+                        const moonModelPath = `assets/models/moon.glb`;
 
                         gltfLoader.load(moonModelPath, function(moonGltf) {
                             const moonMesh = moonGltf.scene;
@@ -670,7 +670,7 @@
         function loadAsteroidModelAndCreateBelt() {
             const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
             let modelPath;
-            try { modelPath = new URL("assets/models/asteroid.glb", baseUrl).href; } 
+            try { modelPath = "assets/models/asteroid.glb"; }
             catch (e) { console.error("Invalid URL for asteroid model"); createAsteroidBeltFallback(); return; }
 
             gltfLoader.load( modelPath,
@@ -919,4 +919,5 @@
     </script>
 
 </body>
+
 </html>
